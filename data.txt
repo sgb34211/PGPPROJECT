@@ -1,0 +1,63 @@
+declare @productname varchar(30)
+declare @qty int
+if exists(select * from productstock where prodid='p004')--to check the existence of prodid p004
+begin
+select @productname=pname,@qty=qty
+from productstock 
+where prodid='p004'
+print 'The product name is:'+@productname
+print 'The quantity :'+convert(varchar,@qty)
+end
+else
+begin
+print 'supplied prodid not available in table'
+end
+
+declare @prodid varchar(20)
+declare @pn varchar(30)
+declare @qty int
+select @prodid=prodid,@pn=pname,@qty=qty
+from productstock where qty=(select min(qty) from productstock)
+if(@qty > 20)
+begin
+print  'No re-order is required'
+print 'The prodid='+@prodid
+print 'The Product name ='+@pn
+print 'the qty='+convert(varchar,@qty)
+end
+else
+begin
+print  're-order is required'
+print 'The prodid='+@prodid
+print 'The Product name ='+@pn
+print 'the qty='+convert(varchar,@qty)
+end
+
+
+
+
+iteration: stands for repetation of command using loop
+every loop there is a start value,end value and codition which 
+determins the end value and either a increment or decrease in 
+counter.
+in sql we can implement while loop 
+
+wab which will display 'Hello Allions'
+for 20 times
+print 'Hello Allions' --20 times
+
+declare @var int
+set @var=1
+while(@var <=20)
+begin
+	print 'Hello Allions' 
+	set @var=@var +1
+end
+		
+c++ let us c++ kanitkar
+web applicatin using servlet and jsp by kanitkar
+course code:j2e7i
+9500+18% tax
+11,210/-
+
+
